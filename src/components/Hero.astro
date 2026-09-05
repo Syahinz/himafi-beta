@@ -19,7 +19,7 @@ import fotoSpartival from "../assets/images/Spartival.jpg";
 import fotoTo from "../assets/images/Training-organization.jpg";
 import fotoPhyTon from "../assets/images/PHY-TON.jpg";
 import ProgramsCard from "../components/ProgramsCard.astro";
-import {sortNewsByDate} from "../utils/date.ts"
+import { sortNewsByDate } from "../utils/date.ts";
 import { getCollection } from "astro:content";
 const title = "HIMAFI";
 const subhead = `UIN syarif hidayatullah jakarta`;
@@ -29,7 +29,7 @@ const sorted = sortNewsByDate(news);
 
 <Section mode="light">
   <div
-    class="mx-auto  w-full max-w-5xl px-4 sm:px-6 lg:px-0 flex flex-col items-center md:flex-row"
+    class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-0 flex flex-col items-center md:flex-row"
   >
     <div class="md:w-1/2">
       <H1 text={title} />
@@ -63,7 +63,7 @@ const sorted = sortNewsByDate(news);
     <div
       class="mt-10 flex px-7 md:px-10 lg:px-36 flex-wrap justify-center md:grid md:grid-cols-3 md:gap-7 sm:grid-cols-2 gap-10"
     >
-      {news.map((report) => <NewsSection report={report} />)}
+      {news.slice(0, 3).map((report) => <NewsSection report={report} />)}
       {news.length < 1 && <Paragraph text="Ga ada berita kawan " />}
     </div>
     <CTA text="Lihat lebih banyak" Href="/news" mode="dark" />
@@ -73,7 +73,7 @@ const sorted = sortNewsByDate(news);
 <Section direct="structure">
   <div class="">
     <div
-      class="px-4 sm:px-8 md:px-16 lg:px-42  flex flex-col items-center  pb-5 md:pb-0 md:flex-row-reverse md:justify-between"
+      class="px-4 sm:px-8 md:px-16 lg:px-42 flex flex-col items-center pb-5 md:pb-0 md:flex-row-reverse md:justify-between"
     >
       <div class="p-6 md:w-1/2 md:flex md:flex-col">
         <H1 text="Struktur" />
@@ -93,8 +93,7 @@ const sorted = sortNewsByDate(news);
             <Image
               src={fotoNeiya}
               alt="Neiya"
-              loading="eager"
-              fetchpriority="high"
+              loading="lazy"
               class="w-50 md:w-72 md:h-112 object-cover transition-all duration-500 brightness-[0.9] hover:brightness-100 hover:scale-110"
             />
           </div>
@@ -108,8 +107,7 @@ const sorted = sortNewsByDate(news);
             <Image
               src={fotoHarry}
               alt="Harry"
-              loading="eager"
-              fetchpriority="high"
+              loading="lazy"
               class="w-50 md:w-72 md:h-112 object-cover transition-all duration-500 brightness-[0.9] hover:brightness-100 hover:scale-110"
             />
           </div>
